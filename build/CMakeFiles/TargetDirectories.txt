@@ -1,0 +1,6 @@
+/home/dog/Documents/c++/soundRot/build/CMakeFiles/soundRot.dir
+/home/dog/Documents/c++/soundRot/build/CMakeFiles/edit_cache.dir
+/home/dog/Documents/c++/soundRot/build/CMakeFiles/rebuild_cache.dir
+/home/dog/Documents/c++/soundRot/build/soloud/CMakeFiles/soloud.dir
+/home/dog/Documents/c++/soundRot/build/soloud/CMakeFiles/edit_cache.dir
+/home/dog/Documents/c++/soundRot/build/soloud/CMakeFiles/rebuild_cache.dir

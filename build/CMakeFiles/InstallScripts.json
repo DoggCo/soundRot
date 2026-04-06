@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/dog/Documents/c++/soundRot/build/cmake_install.cmake",
+		"/home/dog/Documents/c++/soundRot/build/soloud/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
