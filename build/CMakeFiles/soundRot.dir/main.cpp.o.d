@@ -151,9 +151,31 @@ CMakeFiles/soundRot.dir/main.cpp.o: \
  /usr/include/c++/15.2.1/bits/locale_facets.tcc \
  /usr/include/c++/15.2.1/bits/basic_ios.tcc \
  /usr/include/c++/15.2.1/bits/ostream.tcc /usr/include/c++/15.2.1/istream \
- /usr/include/c++/15.2.1/bits/istream.tcc /usr/include/c++/15.2.1/cmath \
- /usr/include/math.h /usr/include/bits/math-vector.h \
- /usr/include/bits/libm-simd-decl-stubs.h \
+ /usr/include/c++/15.2.1/bits/istream.tcc /usr/include/c++/15.2.1/vector \
+ /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
+ /usr/include/c++/15.2.1/bits/stl_vector.h \
+ /usr/include/c++/15.2.1/bits/stl_bvector.h \
+ /usr/include/c++/15.2.1/bits/vector.tcc /usr/include/c++/15.2.1/csignal \
+ /usr/include/signal.h /usr/include/bits/signum-generic.h \
+ /usr/include/bits/signum-arch.h /usr/include/bits/types/sig_atomic_t.h \
+ /usr/include/bits/types/siginfo_t.h /usr/include/bits/types/__sigval_t.h \
+ /usr/include/bits/siginfo-arch.h /usr/include/bits/siginfo-consts.h \
+ /usr/include/bits/siginfo-consts-arch.h \
+ /usr/include/bits/types/sigval_t.h /usr/include/bits/types/sigevent_t.h \
+ /usr/include/bits/sigevent-consts.h /usr/include/bits/sigaction.h \
+ /usr/include/bits/sigcontext.h /usr/include/bits/types/stack_t.h \
+ /usr/include/sys/ucontext.h /usr/include/bits/sigstack.h \
+ /usr/include/bits/sigstksz.h /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h /usr/include/bits/ss_flags.h \
+ /usr/include/bits/types/struct_sigstack.h /usr/include/bits/sigthread.h \
+ /usr/include/bits/signal_ext.h \
+ /home/dog/Documents/c++/soundRot/soloud/include/soloud.h \
+ /usr/include/c++/15.2.1/stdlib.h /usr/include/c++/15.2.1/math.h \
+ /usr/include/c++/15.2.1/cmath /usr/include/math.h \
+ /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
  /usr/include/bits/fp-fast.h /usr/include/bits/mathcalls-macros.h \
  /usr/include/bits/mathcalls-helper-functions.h \
@@ -170,15 +192,7 @@ CMakeFiles/soundRot.dir/main.cpp.o: \
  /usr/include/c++/15.2.1/tr1/modified_bessel_func.tcc \
  /usr/include/c++/15.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/15.2.1/tr1/poly_laguerre.tcc \
- /usr/include/c++/15.2.1/tr1/riemann_zeta.tcc \
- /usr/include/c++/15.2.1/vector \
- /usr/include/c++/15.2.1/bits/stl_uninitialized.h \
- /usr/include/c++/15.2.1/bits/stl_vector.h \
- /usr/include/c++/15.2.1/bits/stl_bvector.h \
- /usr/include/c++/15.2.1/bits/vector.tcc \
- /home/dog/Documents/c++/soundRot/soloud/include/soloud.h \
- /usr/include/c++/15.2.1/stdlib.h /usr/include/c++/15.2.1/math.h \
- /usr/include/assert.h \
+ /usr/include/c++/15.2.1/tr1/riemann_zeta.tcc /usr/include/assert.h \
  /home/dog/Documents/c++/soundRot/soloud/include/soloud_filter.h \
  /home/dog/Documents/c++/soundRot/soloud/include/soloud.h \
  /home/dog/Documents/c++/soundRot/soloud/include/soloud_fader.h \

@@ -1,13 +1,19 @@
 #include <chrono>
 #include <thread>
 #include <iostream>
-#include <cmath>
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <csignal>
 
 #include "soloud.h"
 #include "soloud_wav.h"
+
+volatile sig_atomic_t interrupted = 0;
+
+void handleSigint(int) {
+    interrupted = 1;
+}
 
 struct AudioSystem {
     SoLoud::Soloud engine;
@@ -39,10 +45,12 @@ struct AudioSystem {
 };
 
 int main() {
+    signal(SIGINT, handleSigint);
     bool exitProgram = false;
     while (true) {
 
-        std::cout << "Welcome to this sound mess\n\n";
+        std::cout << "Welcome to this sound mess\n";
+        std::cout << "Please write -1 to exit.\n\n";
         int choice = 0;
         int frequency = 0;
     
@@ -71,8 +79,10 @@ int main() {
                 continue;
             }
             if (choice == 0) {
-                exitProgram = true;
                 break;
+            }
+            if (choice == -1) {
+                return 0;
             }
             if (choice < 1 || choice > effects.size() || !active[choice - 1]) {
                 std::cout << "Invalid choice\n";
@@ -98,11 +108,18 @@ int main() {
             percentages.push_back(percent);
         }
 
-        for (int i = 0; i < percentages.size(); i++) {
+        /*for (int i = 0; i < percentages.size(); i++) {
             std::cout << percentages[i] << "\n";
-        }
-        while(true) {
-            int sleeptime = (rand() % 30) + 5;
+        }*/
+        int max;
+        int min;
+        std::cout << "Please enter max frequency (seconds): ";
+        std::cin >> max;
+        std::cout << "Please enter min frequency (seconds): ";
+        std::cin >> min;
+        std::cout << "CTRL+C and enter to exit.";
+        while(!interrupted) {
+            int sleeptime = (rand() % (max - min + 1)) + min;
             std::this_thread::sleep_for(std::chrono::seconds(sleeptime));
 
             int roll = (rand() % total) + 1;
@@ -118,6 +135,7 @@ int main() {
                 }
             }
         }
+        interrupted = 0;
     }
 
     return 0;
