@@ -20,12 +20,20 @@ struct AudioSystem {
     SoLoud::Wav waterphone;
     SoLoud::Wav metalpipe;
     SoLoud::Wav foxy;
+    SoLoud::Wav correct;
+    SoLoud::Wav incorrect;
+    SoLoud::Wav smoke;
+    SoLoud::Wav cloaker;
 
     void init() {
         engine.init();
         waterphone.load("Audio/waterphone.wav");
         metalpipe.load("Audio/metalpipe.wav");
         foxy.load("Audio/foxy.wav");
+        correct.load("Audio/correct.wav");
+        incorrect.load("Audio/incorrect.wav");
+        smoke.load("Audio/smokealarm.wav");
+        cloaker.load("Audio/cloaker.wav");
     }
 
     void playWaterphone() {
@@ -42,6 +50,30 @@ struct AudioSystem {
     }
     void playFoxy() {
         engine.play(foxy);
+            while (engine.getActiveVoiceCount() > 0) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    }
+    void playCorrect() {
+        engine.play(correct);
+            while (engine.getActiveVoiceCount() > 0) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    }
+    void playIncorrect() {
+        engine.play(incorrect);
+            while (engine.getActiveVoiceCount() > 0) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    }
+    void playSmoke() {
+        engine.play(smoke);
+            while (engine.getActiveVoiceCount() > 0) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    }
+    void playCloaker() {
+        engine.play(cloaker);
             while (engine.getActiveVoiceCount() > 0) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
@@ -68,7 +100,11 @@ int main() {
         std::vector<std::string> effects = {
             "Waterphone",   // 1
             "Metal Pipe",   // 2
-            "Foxy"          // 3
+            "Foxy",         // 3
+            "Correct",      // 4
+            "Incorrect",    // 5
+            "Smoke Alarm",  // 6
+            "Cloaker"       // 7
         };
         std::vector<std::vector<std::string>> selected;
         std::vector<bool> active(effects.size(), true);
@@ -141,6 +177,10 @@ int main() {
                     if (selected[i][0] == "Waterphone") audio.playWaterphone();
                     if (selected[i][0] == "Metal Pipe") audio.playMetalpipe();
                     if (selected[i][0] == "Foxy") audio.playFoxy();
+                    if (selected[i][0] == "Correct") audio.playCorrect();
+                    if (selected[i][0] == "Incorrect") audio.playIncorrect();
+                    if (selected[i][0] == "Smoke Alarm") audio.playSmoke();
+                    if (selected[i][0] == "Cloaker") audio.playCloaker();
                     break;
                 }
             }
