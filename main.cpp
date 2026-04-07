@@ -19,11 +19,13 @@ struct AudioSystem {
     SoLoud::Soloud engine;
     SoLoud::Wav waterphone;
     SoLoud::Wav metalpipe;
+    SoLoud::Wav foxy;
 
     void init() {
         engine.init();
         waterphone.load("Audio/waterphone.wav");
         metalpipe.load("Audio/metalpipe.wav");
+        foxy.load("Audio/foxy.wav");
     }
 
     void playWaterphone() {
@@ -34,6 +36,12 @@ struct AudioSystem {
     }
     void playMetalpipe() {
         engine.play(metalpipe);
+            while (engine.getActiveVoiceCount() > 0) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        }
+    }
+    void playFoxy() {
+        engine.play(foxy);
             while (engine.getActiveVoiceCount() > 0) {
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
@@ -59,10 +67,11 @@ int main() {
     
         std::vector<std::string> effects = {
             "Waterphone",   // 1
-            "Metal Pipe"    // 2
+            "Metal Pipe",   // 2
+            "Foxy"          // 3
         };
         std::vector<std::vector<std::string>> selected;
-        std::vector<bool> active = { true, true };
+        std::vector<bool> active(effects.size(), true);
     
         while (true) {
             std::cout << "Select audio (0 to finish):\n";
@@ -113,11 +122,11 @@ int main() {
         }*/
         int max;
         int min;
+        std::cout << "CTRL+C and enter to exit after audio plays.\n\n";
         std::cout << "Please enter max frequency (seconds): ";
         std::cin >> max;
         std::cout << "Please enter min frequency (seconds): ";
         std::cin >> min;
-        std::cout << "CTRL+C and enter to exit.";
         while(!interrupted) {
             int sleeptime = (rand() % (max - min + 1)) + min;
             std::this_thread::sleep_for(std::chrono::seconds(sleeptime));
@@ -131,12 +140,12 @@ int main() {
                 if (roll <= cumulative) {
                     if (selected[i][0] == "Waterphone") audio.playWaterphone();
                     if (selected[i][0] == "Metal Pipe") audio.playMetalpipe();
+                    if (selected[i][0] == "Foxy") audio.playFoxy();
                     break;
                 }
             }
         }
         interrupted = 0;
     }
-
     return 0;
 }
